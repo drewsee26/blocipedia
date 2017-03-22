@@ -16,6 +16,12 @@
 
 @import "bootstrap";
 
+.container .navbar-hearder {
+    text-align: left;
+}
+
+
 .pull-right {
+    display: inline-block;
     float: right;
 }

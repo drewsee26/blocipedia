@@ -2,12 +2,13 @@
 <div class="page-header">
     <h2>Blocipedia: Social, Markdown Wikis</h2>
 </div>
-    <div class="jumbotron">
-        <p>Create and share Markdown Wikis</p>
-        <p>
-            <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
-        </p>
-    </div>
+
+<div class="jumbotron">
+    <p>Create and share Markdown Wikis</p>
+    <p>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+    </p>
+</div>
 
 
 <div class="row">
@@ -20,13 +21,9 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <p>
-            <%= link_to "Free Plan", root_path, class: 'btn btn-primary' %>
-        </p>
+        <p><%= link_to "Free Plan", new_wiki_path, class: 'btn btn-primary' %></p>
     </div>
     <div class="col-md-6">
-        <p>
-            <%= link_to "Premium Plan", root_path, class: 'btn btn-success' %>
-        </p>
+        <p><%= link_to "Premium Plan", root_path, class: 'btn btn-success' %></p>
     </div>
 </div>

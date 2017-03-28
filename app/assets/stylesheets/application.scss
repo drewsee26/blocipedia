@@ -20,7 +20,11 @@
     text-align: left;
 }
 
-
+.navbar-brand {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
 .pull-right {
     display: inline-block;
     float: right;

@@ -6,7 +6,7 @@
 <div class="jumbotron">
     <p>Create and share Markdown Wikis</p>
     <p>
-        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success' %>
     </p>
 </div>
 
@@ -21,9 +21,13 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <p><%= link_to "Free Plan", new_wiki_path, class: 'btn btn-primary' %></p>
+        <p><%= link_to "Public Wikis", new_wiki_path, class: 'btn btn-primary' %></p>
     </div>
     <div class="col-md-6">
-        <p><%= link_to "Premium Plan", root_path, class: 'btn btn-success' %></p>
+        <% if user_signed_in? && current_user.role == 'premium' %>
+            <p><%= link_to "Private Wikis", root_path, class: 'btn btn-primary' %></p>
+        <% else %>
+            <p><%= link_to "Premium Plan", new_charge_path, class: 'btn btn-success' %></p>
+        <% end %>
     </div>
 </div>

@@ -22,6 +22,8 @@ gem 'bootstrap'
 gem 'figaro', '1.0'
 gem 'devise'
 gem 'pundit'
+gem 'stripe'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug'
@@ -33,4 +35,3 @@ group :development, :test do
   gem 'pry-rails'
 end
 
-gem 'bootstrap-sass'

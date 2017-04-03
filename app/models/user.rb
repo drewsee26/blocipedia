@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   def user_role
     self.role ||= :standard
   end
+  
+  def downgrade
+    self.role ||= :standard
+  end
 end

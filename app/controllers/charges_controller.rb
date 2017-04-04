@@ -34,4 +34,10 @@ class ChargesController < ApplicationController
             flash[:alert] = e.message
             redirect_to new_charge_path
     end
+    
+    def downgrade
+        current_user.update_attribute(:role, :standard)
+        flash[:notice] = "You are now a standard Wiki user.  You only have access to public Wikis."
+        redirect_to root_path(current_user)
+    end
 end

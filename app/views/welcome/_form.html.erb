@@ -1,0 +1,51 @@
+<% if user_signed_in? && current_user.standard? %>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Create public wikis!</h4>
+        </div>
+        <div class="col-md-6">
+            <h4>Create private wikis!</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p><%= link_to "Public Wikis", new_wiki_path, class: 'btn btn-primary' %></p>
+        </div>
+        <div class="col-md-6">
+            <p><%= link_to "Premium Plan", new_charge_path, class: 'btn btn-success' %></p>
+        </div>
+    </div>
+<% elsif user_signed_in? && current_user.premium? %>
+    <div class="private">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Create wikis!</h4>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <p><%= link_to "Create Wiki", new_wiki_path, class: 'btn btn-success' %></p>
+            </div>
+        </div>
+    </div>
+<% else %>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Create public wikis!</h4>
+        </div>
+        <div class="col-md-6">
+            <h4>Create private wikis!</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p><%= link_to "Public Wikis", new_wiki_path, class: 'btn btn-primary' %></p>
+        </div>
+        <div class="col-md-6">
+            <p><%= link_to "Premium Plan", new_charge_path, class: 'btn btn-success' %></p>
+        </div>
+    </div>
+<% end %>

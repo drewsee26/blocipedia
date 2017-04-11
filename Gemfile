@@ -24,6 +24,7 @@ gem 'devise'
 gem 'pundit'
 gem 'stripe'
 gem 'bootstrap-sass'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug'

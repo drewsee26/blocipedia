@@ -7,11 +7,11 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    resolve
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    !record.private? || user.present? && (user.admin? || record.user == user)
   end
 
   def create?

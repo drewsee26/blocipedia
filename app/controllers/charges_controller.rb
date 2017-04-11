@@ -36,7 +36,8 @@ class ChargesController < ApplicationController
     end
     
     def downgrade
-        current_user.update_attribute(:role, :standard)
+        current_user.standard!
+        current_user.wikis.update_all(private: false)
         flash[:notice] = "You are now a standard Wiki user.  You only have access to public Wikis."
         redirect_to root_path(current_user)
     end

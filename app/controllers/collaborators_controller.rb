@@ -1,25 +1,35 @@
 class CollaboratorsController < ApplicationController
-  def index
-    @collaborators = User.all
-  end
+  before_action :set_wiki
   
-  def new
-    @collaborator = Collaborator.new
+  def index
+    @users = User.all
   end
   
   def create
-    @collaborator = Collaborator.where(user_id: @user.id)
+    @collaborator = @wiki.collaborators.new(:user_id => params[:user_id])
+    
+    if @collaborator.save
+      flash[:notice] = "Collaborator was added."
+    else
+      flash.now[:alert] = "There was an error adding the collaborator.  Please try again."
+    end
+    redirect_to wiki_collaborators_path(@wiki)
   end
   
   def destroy
-    @collaborator = current_user.collaborator.delete
+    @collaborator = @wiki.collaborators.find(params[:id])
     
     if @collaborator.destroy
-      flash[:notice] = "\"#{@collaborator.email}\" was removed as a Collaborator successfully."
-        redirect_to wiki_collaborators_path(@wiki)
+      flash[:notice] = "\"#{@collaborator.user.email}\" was removed as a Collaborator successfully."
     else
-      flash.now[:alert] = "There was an error deleting this post."
-      render :index
+      flash.now[:alert] = "There was an error deleting this collaborator."
     end
+    redirect_to wiki_collaborators_path(@wiki)
+  end
+  
+  private 
+  
+  def set_wiki
+    @wiki = Wiki.find(params[:wiki_id])
   end
 end

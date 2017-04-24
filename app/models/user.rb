@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
   def user_role
     self.role ||= :standard
   end
+
+  
 end

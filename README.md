@@ -2,7 +2,7 @@
 ## A Ruby on Rails Wiki style application to collaborate with other users.
 
 Blocipedia allows users to sign up for a free account to post public Wikis
-* This app is deployed on Heroku: https://still-spire-75145.herokuapp.com/
+* This app is deployed on Heroku: https://drews-blocipedia.herokuapp.com/
 * The source code is located on github: https://github.com/drewsee26/blocipedia
 
 ## Features
